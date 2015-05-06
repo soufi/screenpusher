@@ -1,25 +1,29 @@
 {
-  "name": "screenfier",
-  "version": "1.0.0",
-  "description": "this project was started by soufi and raca for fun ! ",
-  "main": "client1.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "project",
-    "for",
-    "fun",
-    "screenfier"
-  ],
-  "author": "souf&raca",
-  "license": "open source",
-  "dependencies": {
-    "bunyan": "^1.3.4",
-    "mongodb": "^2.0.28",
-    "mosca": "^0.29.0",
-    "mqtt": "^1.1.3",
-    "request": "^2.55.0",
-    "validator": "^3.39.0"
-  }
+    "name": "screenpusher",
+    "version": "1.0.0",
+    "description": "this project was started by soufi and raca for fun ! ",
+    "main": "client1.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "project",
+        "for",
+        "fun",
+        "screenfier"
+    ],
+    "author": "souf&raca",
+    "license": "MIT License",
+    "dependencies": {
+        "bunyan": "^1.3.4",
+        "mongodb": "^2.0.28",
+        "mosca": "^0.29.0",
+        "mqtt": "^1.1.3",
+        "request": "^2.55.0",
+        "validator": "^3.39.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/soufi/screenpusher"
+    }
 }
