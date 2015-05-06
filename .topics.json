@@ -1,0 +1,31 @@
+{
+    "available" : {
+        "subjects" : {
+            "sports" : {
+                "soccer" : {
+                    "contests" : {
+                        "CL" : {"id":362},
+                        "PD" : {"id":368}, 
+                        "PL" : {"id":354}, 
+                        "BL1" : {"id":351} 
+                    },
+                    "teams" : {
+                        "Bayern" : {"id":5},
+                        "Dortmund" : {"id":4},
+                        "ManU" : {"id":66},
+                        "Arsenal":{"id":57},
+                        "Liverpool":{"id":64},
+                        "ManCity" : {"id":65},
+                        "Chelsea" : {"id":61},
+                        "Barcelona" : {"id":81},
+                        "Real_Madrid":{"id":86},
+                        "Atletico" : {"id":78}
+                    }
+                },
+                "nba" : {},
+                "nfl" : {}
+            },
+            "news" : {}
+        }
+    }
+}

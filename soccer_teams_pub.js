@@ -63,7 +63,7 @@ var get_options = function(id){
         return {
             url : "http://www.football-data.org/teams/"+id+"/fixtures",
             headers:{
-                'X-Auth-Token': '1f69f6f5cb2749979216639b077f3655'
+                'X-Auth-Token': require("./.tokens").football_data
             }
         }
     }else{
