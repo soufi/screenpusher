@@ -1,3 +1,4 @@
+require('dot-env')
 var mosca = require('mosca');
 var officer = require('./officer');
 var bunyan = require("bunyan");
@@ -16,14 +17,13 @@ var log = bunyan.createLogger({
     ]
 });
 
-
 //publish subscribe settings
 var pubsubsettings = {
   //using ascoltatore
   type: 'mongo',        
-  url: 'mongodb://localhost:27017/mqtt',
+  url: process.env.MONGO_URL,
   pubsubCollection: 'ascoltatori',
-  mongo: require('mongodb')
+  mongo: {}
 };
 
 //here we start mosca
@@ -32,7 +32,7 @@ var server = new mosca.Server({
     backend: pubsubsettings,   //pubsubsettings is the object we created above 
     persistence: {
         factory: mosca.persistence.Mongo,
-        url: 'mongodb://localhost:27017/mqtt'
+        url: process.env.MONGO_URL
     }
 });   
 
@@ -44,41 +44,22 @@ server.on('clientConnected', function(client) {
     log.info('client connected ', client.id);
 });
 
-/*
-server.published = function(packet, client, cb) {
-    if(client !== undefined){
-        if(officer(packet.topic)){
-            console.log(packet.topic);
-            var newPacket = {
-                topic: packet.topic,
-                payload: packet.payload,
-                retain: false,
-                qos: 1
-            };
-
-            server.publish(newPacket, cb);
-            log.info('new message on ',packet.topic,' topic.');
-        }
-    }
-    
-    return cb();
-}*/
 
 server.on("published", function(packet, client){
     if(client !== undefined){
-        if(officer(packet.topic)){
-            log.info(packet.topic);
+        if(officer.validate_topic(packet.topic)){
             var newPacket = {
                 topic: packet.topic,
                 payload: packet.payload,
                 retain: false,
-                qos: 1
+                qos: 2
             };
 
-            server.publish(newPacket, cb);
+            server.publish(newPacket);
             log.info('new message on ',packet.topic,' topic.');
+        }else {
+            log.info("wrong topic : ",packet.topic);
         }
     }
-    return;
 });
 

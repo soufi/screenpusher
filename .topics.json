@@ -25,7 +25,12 @@
                 "nba" : {},
                 "nfl" : {}
             },
-            "news" : {}
+            "news" : {},
+            "tweets" : {
+                "SoufiJ" : {},
+                "rxcai" : {},
+                "franky_tv": {}
+            }
         }
     }
 }
